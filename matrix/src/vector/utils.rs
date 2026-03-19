@@ -9,7 +9,7 @@ impl<K : Display ,const N: usize> Vector<K,N> {
         }
         print!(" ]\n");
     }
-}
+} 
 
 impl<K, const N: usize> Vector<K,N> {
     pub fn size(&self) -> usize {
