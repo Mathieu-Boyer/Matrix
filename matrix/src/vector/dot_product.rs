@@ -1,7 +1,7 @@
-use std::ops::{Add, Mul};
+use crate::linear_algebra::traits::Field;
 use crate::vector::core::Vector;
 
-impl<K , const N : usize> Vector<K, N> where K : Default + Copy + Mul<Output = K> + Add<Output = K>{
+impl<K : Field, const N : usize> Vector<K, N>{
     pub fn dot(&self,other:&Vector<K, N>) -> K{
 
         let mut sum = K::default();

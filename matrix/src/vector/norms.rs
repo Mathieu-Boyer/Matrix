@@ -1,7 +1,7 @@
-use std::ops::{Add, Neg};
+use crate::linear_algebra::traits::Field;
 use crate::vector::core::Vector;
 
-impl <K , const N : usize> Vector<K, N> where K: Add<Output = K> + Neg<Output = K> + PartialOrd +  Default + Copy + Into<f32> {
+impl <K : Field , const N : usize> Vector<K, N>{
     fn abs(num : K) -> K {
         if num < K::default() {-num} else {num}
     }

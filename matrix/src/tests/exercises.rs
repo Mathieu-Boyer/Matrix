@@ -1,10 +1,10 @@
-use crate::linear_algebra::core::lerp;
+use crate::linear_algebra::core::{angle_cos, lerp};
 use crate::matrix::core::Matrix;
 use crate::vector::core::Vector;
 
 pub fn ex00(){
     println!("--------- Ex00 ---------");
-    let my_vector = Vector::new([1, 2, 3, 4 , 5 , 6]);
+    let my_vector = Vector::new([1., 2., 3., 4. , 5. , 6.]);
     println!("----- Original vector");
     my_vector.display();
     println!("----- Original vector + Original vector");
@@ -12,10 +12,10 @@ pub fn ex00(){
     println!("----- Original vector - Original vector");
     my_vector.sub(&my_vector).display();
     println!("----- Original vector scaled by 2");
-    my_vector.scale(2).display();
+    my_vector.scale(2.).display();
 
 
-    let my_matrix = Matrix::new([[1, 2, 3], [4, 5, 6]]);
+    let my_matrix = Matrix::new([[1., 2., 3.], [4., 5., 6.]]);
     println!("----- Original Matrix");
     my_matrix.display();
     println!("----- Original Matrix + Original Matrix");
@@ -23,7 +23,7 @@ pub fn ex00(){
     println!("----- Original Matrix - Original Matrix");
     my_matrix.sub(&my_matrix).display();
     println!("----- Original Matrix scaled by 2");
-    my_matrix.scale(2).display();
+    my_matrix.scale(2.).display();
 
 
 }
@@ -118,5 +118,25 @@ pub fn ex04(){
     println!("----- Mixed values");
     let u = Vector::new([-3., 1., -5., -2.]);
     println!("{}, {}, {}", u.norm_1(), u.norm(), u.norm_inf());
+}
+
+pub fn ex05(){
+    println!("--------- Ex05 ---------");
+
+    println!("----- Same vectors");
+    println!("{}", angle_cos(&Vector::new([1., 0.]), &Vector::new([1., 0.])));
+
+    println!("----- Perpendicular vectors");
+    println!("{}", angle_cos(&Vector::new([1., 0.]), &Vector::new([0., 1.])));
+
+    println!("----- Opposite vectors");
+    println!("{}", angle_cos(&Vector::new([-1., 1.]), &Vector::new([1., -1.])));
+
+    println!("----- Colinear vectors");
+    println!("{}", angle_cos(&Vector::new([2., 1.]), &Vector::new([4., 2.])));
+
+    println!("----- 3D vectors");
+    println!("{}", angle_cos(&Vector::new([1., 2., 3.]), &Vector::new([4., 5., 6.])));
+
 }
 

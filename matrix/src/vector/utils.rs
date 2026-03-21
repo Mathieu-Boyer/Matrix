@@ -1,8 +1,8 @@
 use crate::vector::core::Vector;
-use std::fmt::Display;
+use crate::linear_algebra::traits::Field;
 use crate::matrix::core::Matrix;
 
-impl<K : Display + Default ,const N: usize> Vector<K,N> {
+impl<K : Field ,const N: usize> Vector<K,N> {
     pub fn display(&self){
         print!("Size : {} , Content : [ ", self.size());
         for i in 0..N{

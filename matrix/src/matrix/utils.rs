@@ -1,8 +1,8 @@
-use std::fmt::Display;
+use crate::linear_algebra::traits::Field;
 use crate::matrix::core::Matrix;
 use crate::vector::core::Vector;
 
-impl<K : Display, const N : usize, const M : usize> Matrix<K,N, M> {
+impl<K : Field, const N : usize, const M : usize> Matrix<K,N, M> {
     pub fn display(&self){
         println!("Shape : ({}, {})", N, M);
         print!("[\n");
