@@ -6,4 +6,7 @@ pub mod tests;
 fn main() {
     //tests::exercises::ex00();
 
+    tests::exercises::ex01();
+
+
 }
