@@ -76,3 +76,22 @@ pub fn ex02(){
 
 }
 
+
+pub fn ex03(){
+    println!("--------- Ex03 ---------");
+
+    println!("----- Zero vectors");
+    println!("{}", Vector::new([0., 0.]).dot(&Vector::new([1., 1.])));
+
+    println!("----- Same vectors");
+    println!("{}", Vector::new([1., 1.]).dot(&Vector::new([1., 1.])));
+
+    println!("----- Opposite vectors");
+    println!("{}", Vector::new([-1., 6.]).dot(&Vector::new([3., 2.])));
+
+    println!("----- 3D vectors");
+    println!("{}", Vector::new([1., 2., 3.]).dot(&Vector::new([4., 5., 6.])));
+
+    println!("----- Negative values");
+    println!("{}", Vector::new([-1., -2., -3.]).dot(&Vector::new([1., 2., 3.])));
+}
