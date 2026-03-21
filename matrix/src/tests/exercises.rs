@@ -180,3 +180,23 @@ pub fn ex07(){
     println!("----- Matrix * matrix");
     Matrix::new([[3., -5.], [6., 8.]]).mul_mat(&Matrix::new([[2., 1.], [4., 2.]])).display();
 }
+
+
+pub fn ex08(){
+    println!("--------- Ex08 ---------");
+
+    println!("----- Identity matrix");
+    println!("{}", Matrix::new([[1., 0.], [0., 1.]]).trace());
+
+    println!("----- 3x3 matrix");
+    println!("{}", Matrix::new([[2., -5., 0.], [4., 3., 7.], [-2., 3., 4.]]).trace());
+
+    println!("----- Negative trace");
+    println!("{}", Matrix::new([[-2., -8., 4.], [1., -23., 4.], [0., 6., 4.]]).trace());
+
+    println!("----- Zero matrix");
+    println!("{}", Matrix::new([[0., 0.], [0., 0.]]).trace());
+
+    println!("----- Single element");
+    println!("{}", Matrix::new([[5.]]).trace());
+}
