@@ -4,7 +4,6 @@ use crate::vector::core::Vector;
 
 impl<K : Display, const N : usize, const M : usize> Matrix<K,N, M> {
     pub fn display(&self){
-        println!("////////////////////////");
         println!("Shape : ({}, {})", N, M);
         print!("[\n");
             for i in 0..N {
@@ -20,7 +19,6 @@ impl<K : Display, const N : usize, const M : usize> Matrix<K,N, M> {
             }
         print!("]\n");
         println!("Matrix is square ? {}", self.is_square());
-        println!("////////////////////////");
 
     }
 
