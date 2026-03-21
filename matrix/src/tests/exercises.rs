@@ -1,3 +1,4 @@
+use crate::linear_algebra::core::lerp;
 use crate::matrix::core::Matrix;
 use crate::vector::core::Vector;
 
@@ -56,3 +57,22 @@ pub fn ex01(){
     Vector::linear_combination(&[v1, v2], &[-1., 1.]).display();
 
 }
+
+pub fn ex02(){
+    println!("--------- Ex02 ---------");
+
+    println!("----- Scalars");
+    println!("{}", lerp(0., 1., 0.));
+    println!("{}", lerp(0., 1., 1.));
+    println!("{}", lerp(0., 1., 0.5));
+    println!("{}", lerp(21., 42., 0.3));
+
+    println!("----- Vectors");
+    lerp(Vector::new([2., 1.]), Vector::new([4., 2.]), 0.3).display();
+    lerp(Vector::new([0., 0.]), Vector::new([1., 1.]), 0.5).display();
+
+    println!("----- Matrices");
+    lerp(Matrix::new([[2., 1.], [3., 4.]]), Matrix::new([[20., 10.], [30., 40.]]), 0.5).display();
+
+}
+

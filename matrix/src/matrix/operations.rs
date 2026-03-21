@@ -1,6 +1,7 @@
+use std::ops::{Add, Sub, Mul};
 use crate::matrix::core::Matrix;
 
-impl<K: std::ops::Add<Output = K> + std::ops::Sub<Output = K> + Default + std::ops::Mul<Output = K>, const N : usize , const M : usize> Matrix<K, N, M>{
+impl<K, const N : usize , const M : usize> Matrix<K, N, M> where K : Add<Output = K> + Sub<Output = K> + Default + Mul<Output = K>{
     fn execute_matrix_operation(&self , other : &Matrix<K, N, M>, f : fn(K, K) -> K) -> Matrix<K, N, M> where K : Copy {
         let mut new_mat = Matrix::<K, N, M>::new([[K::default(); M] ; N]);
         for i in 0..N{
@@ -32,5 +33,30 @@ impl<K: std::ops::Add<Output = K> + std::ops::Sub<Output = K> + Default + std::o
 
     pub fn scale(&self, factor : K) -> Matrix<K, N , M>   where K : Copy {
         self.execute_scalar_operation(factor, |a, b| a * b)
+    }
+}
+
+
+impl<K, const N : usize> Add for Matrix<K, N, N>where K : Add<Output = K> + Sub<Output = K> + Default + Mul<Output = K> + Copy {
+    type Output = Matrix<K, N, N>;
+
+    fn add(self, rhs: Self) -> Self::Output {
+        self.execute_matrix_operation(&rhs, |a, b| a + b)
+    }
+}
+
+impl<K, const N : usize> Sub for Matrix<K, N, N>where K : Add<Output = K> + Sub<Output = K> + Default + Mul<Output = K> + Copy {
+    type Output = Matrix<K, N, N>;
+
+    fn sub(self, rhs: Self) -> Self::Output {
+        self.execute_matrix_operation(&rhs, |a, b| a - b)
+    }
+}
+
+impl<K, const N : usize> Mul<K> for Matrix<K, N, N>where K : Add<Output = K> + Sub<Output = K> + Default + Mul<Output = K> + Copy {
+    type Output = Matrix<K, N, N>;
+
+    fn mul(self, rhs: K) -> Self::Output {
+        self.execute_scalar_operation(rhs, |a, b| a * b)
     }
 }
