@@ -1,4 +1,4 @@
-use crate::linear_algebra::core::{angle_cos, lerp};
+use crate::linear_algebra::core::{angle_cos, cross_product, lerp};
 use crate::matrix::core::Matrix;
 use crate::vector::core::Vector;
 
@@ -140,3 +140,21 @@ pub fn ex05(){
 
 }
 
+pub fn ex06(){
+    println!("--------- Ex06 ---------");
+
+    println!("----- Standard basis");
+    cross_product(&Vector::new([0., 0., 1.]), &Vector::new([1., 0., 0.])).display();
+
+    println!("----- Subject example 2");
+    cross_product(&Vector::new([1., 2., 3.]), &Vector::new([4., 5., 6.])).display();
+
+    println!("----- Subject example 3");
+    cross_product(&Vector::new([4., 2., -3.]), &Vector::new([-2., -5., 16.])).display();
+
+    println!("----- Parallel vectors");
+    cross_product(&Vector::new([1., 0., 0.]), &Vector::new([2., 0., 0.])).display();
+
+    println!("----- Opposite vectors");
+    cross_product(&Vector::new([1., 2., 3.]), &Vector::new([-1., -2., -3.])).display();
+}

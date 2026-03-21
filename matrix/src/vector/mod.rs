@@ -4,3 +4,4 @@ mod operations;
 mod linear_combination;
 pub mod dot_product;
 pub mod norms;
+pub mod cross;
