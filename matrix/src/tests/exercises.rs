@@ -95,3 +95,28 @@ pub fn ex03(){
     println!("----- Negative values");
     println!("{}", Vector::new([-1., -2., -3.]).dot(&Vector::new([1., 2., 3.])));
 }
+
+pub fn ex04(){
+    println!("--------- Ex04 ---------");
+
+    println!("----- Zero vector");
+    let u = Vector::new([0., 0., 0.]);
+    println!("{}, {}, {}", u.norm_1(), u.norm(), u.norm_inf());
+
+    println!("----- Positive values");
+    let u = Vector::new([1., 2., 3.]);
+    println!("{}, {}, {}", u.norm_1(), u.norm(), u.norm_inf());
+
+    println!("----- Negative values");
+    let u = Vector::new([-1., -2.]);
+    println!("{}, {}, {}", u.norm_1(), u.norm(), u.norm_inf());
+
+    println!("----- Single value");
+    let u = Vector::new([5.]);
+    println!("{}, {}, {}", u.norm_1(), u.norm(), u.norm_inf());
+
+    println!("----- Mixed values");
+    let u = Vector::new([-3., 1., -5., -2.]);
+    println!("{}, {}, {}", u.norm_1(), u.norm(), u.norm_inf());
+}
+
