@@ -158,3 +158,25 @@ pub fn ex06(){
     println!("----- Opposite vectors");
     cross_product(&Vector::new([1., 2., 3.]), &Vector::new([-1., -2., -3.])).display();
 }
+
+pub fn ex07(){
+    println!("--------- Ex07 ---------");
+
+    println!("----- Identity * vector");
+    Matrix::new([[1., 0.], [0., 1.]]).mul_vec(&Vector::new([4., 2.])).display();
+
+    println!("----- Scale matrix * vector");
+    Matrix::new([[2., 0.], [0., 2.]]).mul_vec(&Vector::new([4., 2.])).display();
+
+    println!("----- Mixed matrix * vector");
+    Matrix::new([[2., -2.], [-2., 2.]]).mul_vec(&Vector::new([4., 2.])).display();
+
+    println!("----- Identity * Identity");
+    Matrix::new([[1., 0.], [0., 1.]]).mul_mat(&Matrix::new([[1., 0.], [0., 1.]])).display();
+
+    println!("----- Identity * matrix");
+    Matrix::new([[1., 0.], [0., 1.]]).mul_mat(&Matrix::new([[2., 1.], [4., 2.]])).display();
+
+    println!("----- Matrix * matrix");
+    Matrix::new([[3., -5.], [6., 8.]]).mul_mat(&Matrix::new([[2., 1.], [4., 2.]])).display();
+}
