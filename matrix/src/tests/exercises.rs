@@ -200,3 +200,22 @@ pub fn ex08(){
     println!("----- Single element");
     println!("{}", Matrix::new([[5.]]).trace());
 }
+
+pub fn ex09(){
+    println!("--------- Ex09 ---------");
+
+    println!("----- Identity matrix");
+    Matrix::new([[1., 0.], [0., 1.]]).transpose().display();
+
+    println!("----- Square matrix");
+    Matrix::new([[1., 2.], [3., 4.]]).transpose().display();
+
+    println!("----- Rectangular matrix");
+    Matrix::new([[1., 2., 3.], [4., 5., 6.]]).transpose().display();
+
+    println!("----- Single row");
+    Matrix::new([[1., 2., 3.]]).transpose().display();
+
+    println!("----- Single column");
+    Matrix::new([[1.], [2.], [3.]]).transpose().display();
+}
