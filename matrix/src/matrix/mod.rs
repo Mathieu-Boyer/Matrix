@@ -7,3 +7,4 @@ pub mod transpose;
 pub mod row_echelon;
 pub mod determinants;
 pub mod inverse;
+pub mod rank;

@@ -18,5 +18,7 @@ fn main() {
     //exercises::ex09();
     //exercises::ex10();
     //exercises::ex11();
-    exercises::ex12();
+    //exercises::ex12();
+
+    exercises::ex13();
 }

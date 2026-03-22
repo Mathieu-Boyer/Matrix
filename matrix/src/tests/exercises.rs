@@ -307,3 +307,25 @@ pub fn ex12(){
         Err(e) => println!("{}", e),
     }
 }
+
+pub fn ex13 (){
+    println!("--------- Ex13 ---------");
+
+    println!("----- Identity matrix");
+    println!("{}", Matrix::new([[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]]).rank());
+
+    println!("----- Full rank rectangular");
+    println!("{}", Matrix::new([[1., 2., 0., 0.], [2., 4., 0., 0.], [-1., 2., 1., 1.]]).rank());
+
+    println!("----- Full rank 4x3");
+    println!("{}", Matrix::new([[8., 5., -2.], [4., 7., 20.], [7., 6., 1.], [21., 18., 7.]]).rank());
+
+    println!("----- Singular matrix");
+    println!("{}", Matrix::new([[1., -1.], [-1., 1.]]).rank());
+
+    println!("----- Zero matrix");
+    println!("{}", Matrix::new([[0., 0.], [0., 0.]]).rank());
+
+    println!("----- Single element");
+    println!("{}", Matrix::new([[5.]]).rank());
+}
