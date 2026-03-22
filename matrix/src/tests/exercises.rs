@@ -1,4 +1,4 @@
-use crate::linear_algebra::core::{angle_cos, cross_product, lerp};
+use crate::linear_algebra::core::{angle_cos, cross_product, lerp, projection};
 use crate::matrix::core::Matrix;
 use crate::vector::core::Vector;
 
@@ -328,4 +328,21 @@ pub fn ex13 (){
 
     println!("----- Single element");
     println!("{}", Matrix::new([[5.]]).rank());
+}
+
+
+pub fn ex14(){
+    println!("--------- Ex14 ---------");
+    let to_format = projection(1., 1., 0.1, 100.0);
+
+    for i in 0..4{
+        for j in 0..4{
+            print!("{}", to_format.data[i][j]);
+            if j == 4 - 1{
+                print!("\n");
+            }else{
+                print!(", ");
+            }
+        }
+    }
 }
