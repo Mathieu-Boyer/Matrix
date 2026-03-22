@@ -248,3 +248,62 @@ pub fn ex10(){
     println!("----- Single row");
     Matrix::new([[1., 2., 3.]]).row_echelon().display();
 }
+
+pub fn ex11(){
+    println!("--------- Ex11 ---------");
+
+    println!("----- Identity 2x2");
+    println!("{}", Matrix::new([[1., 0.], [0., 1.]]).determinant());
+
+    println!("----- Singular 2x2");
+    println!("{}", Matrix::new([[1., -1.], [-1., 1.]]).determinant());
+
+    println!("----- Scale 3x3");
+    println!("{}", Matrix::new([[2., 0., 0.], [0., 2., 0.], [0., 0., 2.]]).determinant());
+
+    println!("----- 3x3");
+    println!("{}", Matrix::new([[8., 5., -2.], [4., 7., 20.], [7., 6., 1.]]).determinant());
+
+    println!("----- 4x4");
+    println!("{}", Matrix::new([[8., 5., -2., 4.], [4., 2.5, 20., 4.], [8., 5., 1., 4.], [28., -4., 17., 1.]]).determinant());
+
+    println!("----- Single element");
+    println!("{}", Matrix::new([[5.]]).determinant());
+
+    println!("----- Zero matrix");
+    println!("{}", Matrix::new([[0., 0.], [0., 0.]]).determinant());
+}
+
+pub fn ex12(){
+    println!("--------- Ex12 ---------");
+
+    println!("----- Identity matrix");
+    match Matrix::new([[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]]).inverse() {
+        Ok(m) => m.display(),
+        Err(e) => println!("{}", e),
+    }
+
+    println!("----- Scale matrix");
+    match Matrix::new([[2., 0., 0.], [0., 2., 0.], [0., 0., 2.]]).inverse() {
+        Ok(m) => m.display(),
+        Err(e) => println!("{}", e),
+    }
+
+    println!("----- 3x3");
+    match Matrix::new([[8., 5., -2.], [4., 7., 20.], [7., 6., 1.]]).inverse() {
+        Ok(m) => m.display(),
+        Err(e) => println!("{}", e),
+    }
+
+    println!("----- Singular matrix");
+    match Matrix::new([[1., -1.], [-1., 1.]]).inverse() {
+        Ok(m) => m.display(),
+        Err(e) => println!("{}", e),
+    }
+
+    println!("----- Single element");
+    match Matrix::new([[5.]]).inverse() {
+        Ok(m) => m.display(),
+        Err(e) => println!("{}", e),
+    }
+}
