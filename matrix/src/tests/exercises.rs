@@ -219,3 +219,32 @@ pub fn ex09(){
     println!("----- Single column");
     Matrix::new([[1.], [2.], [3.]]).transpose().display();
 }
+
+pub fn ex10(){
+    println!("--------- Ex10 ---------");
+
+    println!("----- Identity matrix");
+    Matrix::new([[1., 0., 0.], [0., 1., 0.], [0., 0., 1.]]).row_echelon().display();
+
+    println!("----- Simple 2x2");
+    Matrix::new([[1., 2.], [3., 4.]]).row_echelon().display();
+
+    println!("----- Singular 2x2");
+    Matrix::new([[1., 2.], [2., 4.]]).row_echelon().display();
+
+    println!("----- Rectangular 3x5");
+    Matrix::new([
+        [8., 5., -2., 4., 28.],
+        [4., 2.5, 20., 4., -4.],
+        [8., 5., 1., 4., 17.]
+    ]).row_echelon().display();
+
+    println!("----- Singular 3x3");
+    Matrix::new([[1., 2., 3.], [2., 4., 6.], [3., 6., 9.]]).row_echelon().display();
+
+    println!("----- Zero matrix");
+    Matrix::new([[0., 0.], [0., 0.]]).row_echelon().display();
+
+    println!("----- Single row");
+    Matrix::new([[1., 2., 3.]]).row_echelon().display();
+}
