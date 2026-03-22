@@ -3,7 +3,7 @@ use crate::matrix::core::Matrix;
 
 impl <K : Field, const N : usize , const M : usize> Matrix<K, N , M> {
 
-    pub fn transpose(&mut self) -> Matrix<K, M , N> {
+    pub fn transpose(&self) -> Matrix<K, M , N> {
         let mut new_matrix: Matrix<K, M, N> =  Matrix::new([[K::default() ; N] ; M]);
 
         for i in 0..M {

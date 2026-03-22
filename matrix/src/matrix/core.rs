@@ -1,5 +1,4 @@
 use crate::linear_algebra::traits::Field;
-use num_traits::One;
 
 #[derive(Copy, Clone)]
 pub struct Matrix<K : Field, const N: usize, const M: usize>{

@@ -1,6 +1,5 @@
 use crate::linear_algebra::traits::Field;
 use crate::matrix::core::Matrix;
-use num_traits::One;
 impl <K : Field, const N : usize> Matrix<K , N , N>{
 
     fn det1x1(&self)->K{

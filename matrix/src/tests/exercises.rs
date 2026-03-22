@@ -1,6 +1,7 @@
 use crate::linear_algebra::core::{angle_cos, cross_product, lerp, projection};
 use crate::matrix::core::Matrix;
 use crate::vector::core::Vector;
+use crate::linear_algebra::types::Complex;
 
 pub fn ex00(){
     println!("--------- Ex00 ---------");
@@ -345,4 +346,87 @@ pub fn ex14(){
             }
         }
     }
+}
+
+pub fn ex15(){
+    println!("--------- Ex15 ---------");
+
+    println!("----- Ex00 - Add Sub Scale");
+    let u = Vector::new([Complex { real: 1., i: 2. }, Complex { real: 3., i: 4. }]);
+    let v = Vector::new([Complex { real: 5., i: 6. }, Complex { real: 7., i: 8. }]);
+    u.add(&v).display();
+    u.sub(&v).display();
+    u.scale(Complex { real: 2., i: 0. }).display();
+
+    println!("----- Ex01 - Linear combination");
+    let e1 = Vector::new([Complex { real: 1., i: 0. }, Complex { real: 0., i: 0. }]);
+    let e2 = Vector::new([Complex { real: 0., i: 0. }, Complex { real: 1., i: 0. }]);
+    Vector::linear_combination(&[e1, e2], &[Complex { real: 2., i: 1. }, Complex { real: 3., i: -1. }]).display();
+
+    println!("----- Ex02 - Lerp");
+    println!("{}", lerp(Complex { real: 0., i: 0. }, Complex { real: 1., i: 1. }, 0.5));
+
+    println!("----- Ex03 - Dot product");
+    let u = Vector::new([Complex { real: 1., i: 0. }, Complex { real: 0., i: 1. }]);
+    let v = Vector::new([Complex { real: 1., i: 0. }, Complex { real: 0., i: 1. }]);
+    println!("{}", u.dot(&v));
+
+    println!("----- Ex04 - Norms");
+    let u = Vector::new([Complex { real: 3., i: 4. }, Complex { real: 0., i: 0. }]);
+    println!("{}, {}, {}", u.norm_1(), u.norm(), u.norm_inf());
+
+    println!("----- Ex05 - Cosine");
+    let u = Vector::new([Complex { real: 1., i: 0. }, Complex { real: 0., i: 0. }]);
+    let v = Vector::new([Complex { real: 1., i: 0. }, Complex { real: 0., i: 0. }]);
+    println!("{}", angle_cos(&u, &v));
+
+    println!("----- Ex07 - Matrix multiplication");
+    let m = Matrix::new([[Complex { real: 1., i: 0. }, Complex { real: 0., i: 0. }], [Complex { real: 0., i: 0. }, Complex { real: 1., i: 0. }]]);
+    let v = Vector::new([Complex { real: 3., i: 1. }, Complex { real: 2., i: -1. }]);
+    m.mul_vec(&v).display();
+
+    println!("----- Ex08 - Trace");
+    let m = Matrix::new([
+        [Complex { real: 1., i: 2. }, Complex { real: 0., i: 0. }],
+        [Complex { real: 0., i: 0. }, Complex { real: 3., i: 4. }]
+    ]);
+    println!("{}", m.trace());
+
+    println!("----- Ex09 - Transpose");
+    let m = Matrix::new([
+        [Complex { real: 1., i: 2. }, Complex { real: 3., i: 4. }],
+        [Complex { real: 5., i: 6. }, Complex { real: 7., i: 8. }]
+    ]);
+    m.transpose().display();
+
+    println!("----- Ex10 - Row echelon");
+    let m = Matrix::new([
+        [Complex { real: 1., i: 0. }, Complex { real: 2., i: 0. }],
+        [Complex { real: 3., i: 0. }, Complex { real: 4., i: 0. }]
+    ]);
+    m.row_echelon().display();
+
+    println!("----- Ex11 - Determinant");
+    let m = Matrix::new([
+        [Complex { real: 1., i: 0. }, Complex { real: 2., i: 0. }],
+        [Complex { real: 3., i: 0. }, Complex { real: 4., i: 0. }]
+    ]);
+    println!("{}", m.determinant());
+
+    println!("----- Ex12 - Inverse");
+    match Matrix::new([
+        [Complex { real: 2., i: 0. }, Complex { real: 0., i: 0. }],
+        [Complex { real: 0., i: 0. }, Complex { real: 2., i: 0. }]
+    ]).inverse() {
+        Ok(m) => m.display(),
+        Err(e) => println!("{}", e),
+    }
+
+    println!("----- Ex13 - Rank");
+    let m = Matrix::new([
+        [Complex { real: 1., i: 0. }, Complex { real: 0., i: 0. }, Complex { real: 0., i: 0. }],
+        [Complex { real: 0., i: 0. }, Complex { real: 1., i: 0. }, Complex { real: 0., i: 0. }],
+        [Complex { real: 0., i: 0. }, Complex { real: 0., i: 0. }, Complex { real: 1., i: 0. }]
+    ]);
+    println!("{}", m.rank());
 }
