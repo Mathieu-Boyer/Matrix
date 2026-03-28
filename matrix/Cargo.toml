@@ -5,3 +5,9 @@ edition = "2024"
 
 [dependencies]
 num-traits = "0.2.19"
+
+[profile.dev]
+panic = "unwind"
+
+[profile.release]
+panic = "unwind"

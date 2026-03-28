@@ -254,6 +254,7 @@ pub fn ex11(){
     println!("--------- Ex11 ---------");
 
     println!("----- Identity 2x2");
+    
     println!("{}", Matrix::new([[1., 0.], [0., 1.]]).determinant());
 
     println!("----- Singular 2x2");
@@ -267,7 +268,7 @@ pub fn ex11(){
 
     println!("----- 4x4");
     println!("{}", Matrix::new([[8., 5., -2., 4.], [4., 2.5, 20., 4.], [8., 5., 1., 4.], [28., -4., 17., 1.]]).determinant());
-
+    
     println!("----- Single element");
     println!("{}", Matrix::new([[5.]]).determinant());
 

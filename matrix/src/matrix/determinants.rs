@@ -64,7 +64,7 @@ impl <K : Field, const N : usize> Matrix<K , N , N>{
     }
 
     pub fn determinant(&self)->K{
-
+        
         match N {
             0 => K::one(),
             1 => self.det1x1(),
